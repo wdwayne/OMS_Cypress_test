@@ -1,9 +1,6 @@
 describe('Approval Queue tab', () => {
   beforeEach(() => {
-    cy.visit(Cypress.env('BASEURL'));
-    cy.get('#email').should('exist').type(Cypress.env("USERNAME"));
-    cy.get('#password').should('exist').type(Cypress.env("PASSWORD"));
-    cy.contains('button', 'SIGN IN').click();
+    cy.login(Cypress.env("USERNAME"), Cypress.env("PASSWORD"))
   })
 
   it("should navigate to the Approval queue and search by buy orders", () => {

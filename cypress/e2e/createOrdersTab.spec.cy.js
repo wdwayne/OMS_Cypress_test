@@ -1,9 +1,6 @@
 describe('Create orders tab', () => {
     beforeEach(() => {
-      cy.visit(Cypress.env('BASEURL'));
-      cy.get('#email').should('exist').type(Cypress.env("USERNAME"));
-      cy.get('#password').should('exist').type(Cypress.env("PASSWORD"));
-      cy.contains('button', 'SIGN IN').click();
+     cy.login(Cypress.env("USERNAME"), Cypress.env("PASSWORD"))
     })
     it('Should navigate to the create orders tab', () => {
       cy.contains('li', 'Create Order').should('exist').click();
